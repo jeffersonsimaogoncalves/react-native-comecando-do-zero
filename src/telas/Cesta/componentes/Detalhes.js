@@ -1,20 +1,25 @@
 import React from "react";
 import { Image, StyleSheet, View } from "react-native";
 import Texto from "../../../componentes/Texto";
-import logo from "../../../../assets/logo.png";
 
-export default function Detalhes() {
+export default function Detalhes({ nome, logoFazenda, nomeFazenda, descricao, preco }) {
     return (
         <>
-            <Texto style={ styleDetalhes.nome }>Cesta de Verduras</Texto>
+            <Texto style={ styleDetalhes.nome }>
+                { nome }
+            </Texto>
             <View style={ styleDetalhes.fazenda }>
-                <Image source={ logo } style={ styleDetalhes.imagemFazenda } />
-                <Texto style={ styleDetalhes.nomeFazenda }>Jenny Jack Farm</Texto>
+                <Image source={ logoFazenda } style={ styleDetalhes.logoFazenda } />
+                <Texto style={ styleDetalhes.nomeFazenda }>
+                    { nomeFazenda }
+                </Texto>
             </View>
             <Texto style={ styleDetalhes.descricao }>
-                Uma cesta com produtos selecionados cuidadosamente da fazenda direto para sua cozinha
+                { descricao }
             </Texto>
-            <Texto style={ styleDetalhes.preco }>R$ 40,00</Texto>
+            <Texto style={ styleDetalhes.preco }>
+                { preco }
+            </Texto>
         </>
     );
 }
@@ -30,7 +35,7 @@ const styleDetalhes = StyleSheet.create({
         flexDirection: "row",
         paddingVertical: 12,
     },
-    imagemFazenda: {
+    logoFazenda: {
         width: 32,
         height: 32,
     },
